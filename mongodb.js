@@ -18,33 +18,16 @@ MongoClient.connect(connectionURL, { useUnifiedTopology: true }, (error, client)
 
     const db = client.db(databaseName)
 
-    // db.collection('users').findOne({_id: new ObjectID ("6016d7b7f7213ef88d6fecf2")}, (error, user) => {
-    //   if(error) {
-    //     console.log('Unable to fetch')
-    //   }
-
-    //   console.log(user)
-    // })
-
-  //   db.collection('users').find({ age:20 }).toArray((error, users)=> {
-  //       console.log(users)
-  //   })
-
-  //   db.collection('users').find({ age:20 }).count((error, count)=> {
-  //     console.log(count)
-  // })
-
-  db.collection('tasks').findOne({_id: new ObjectID("6016df67e9a80506934ea469")}, (error, task) => {
-    if(error) {
-      console.log('Ubable to fetch')
-    }
-
-    console.log(task)
-  })
-
-  db.collection('tasks').find({ completed:false }).toArray((error, tasks)=> {
-          console.log(tasks)
-  })
-  
+   db.collection('users').updateOne({
+      _id: new ObjectID("60192eb5dca8dd874a475e84")      
+    }, {
+      $set: {
+        name: 'Michael'
+      }
+    }).then((result) => {
+      console.log(result)
+    }).catch((error) => {
+      console.log(error)
+    })
 
   })
