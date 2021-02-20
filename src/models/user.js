@@ -50,7 +50,7 @@ const userSchema = new mongoose.Schema({
 })
 
 //methods on user instances
-userSchema.methods.getPublicProfile = function() {
+userSchema.methods.toJSON = function() {
     const user = this
     const userObject = user.toObject()
 
